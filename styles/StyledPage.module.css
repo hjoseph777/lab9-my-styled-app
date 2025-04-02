@@ -211,3 +211,37 @@
     box-shadow: 0 0 0 2px rgba(80, 80, 80, 0.3);
   }
 }
+
+/* Add these CSS module button styles */
+.moduleButton {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.moduleButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background-color: var(--primary-dark);
+}
+
+.moduleButton.secondary {
+  background-color: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  box-shadow: none;
+}
+
+.moduleButton.secondary:hover {
+  background-color: var(--gray-light);
+  color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
