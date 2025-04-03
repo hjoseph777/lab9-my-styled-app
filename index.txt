@@ -1,19 +1,9 @@
-1:"$Sreact.fragment"
-2:I[3285,["987","static/chunks/987-653b634f07c77d81.js","177","static/chunks/app/layout-138e55b7672f2505.js"],"ClientLayout"]
-3:I[7555,[],""]
-4:I[1295,[],""]
-5:I[894,[],"ClientPageRoot"]
-6:I[3792,["874","static/chunks/874-935bcbc5a3fa0090.js","974","static/chunks/app/page-c5fdbd4767320e95.js"],"default"]
-9:I[9665,[],"OutletBoundary"]
-c:I[9665,[],"ViewportBoundary"]
-e:I[9665,[],"MetadataBoundary"]
-10:I[6614,[],""]
-:HL["/lab9-my-styled-app/_next/static/css/cc44990d8a335fa0.css","style"]
-:HL["/lab9-my-styled-app/_next/static/css/0867176ae5339056.css","style"]
-0:{"P":null,"b":"fSoPpmmvWTkiMcpiZsRXL","p":"/lab9-my-styled-app","c":["",""],"i":false,"f":[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/lab9-my-styled-app/_next/static/css/cc44990d8a335fa0.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"className":"__variable_0143e8 __variable_09bb24 antialiased","children":["$","$L2",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}],{"children":["__PAGE__",["$","$1","c",{"children":[["$","$L5",null,{"Component":"$6","searchParams":{},"params":{},"promises":["$@7","$@8"]}],"$undefined",[["$","link","0",{"rel":"stylesheet","href":"/lab9-my-styled-app/_next/static/css/0867176ae5339056.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L9",null,{"children":["$La","$Lb",null]}]]}],{},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","NtnD1Kj1MtR4Wb4NnXFS5",{"children":[["$","$Lc",null,{"children":"$Ld"}],null]}],["$","$Le",null,{"children":"$Lf"}]]}],false]],"m":"$undefined","G":["$10","$undefined"],"s":false,"S":true}
-7:{}
-8:{}
-d:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
-a:null
-b:null
-f:[["$","title","0",{"children":"My Styled App"}],["$","meta","1",{"name":"description","content":"A showcase of different styling methods in Next.js"}]]
+2:I[9107,[],"ClientPageRoot"]
+3:I[6117,["648","static/chunks/648-2a52a5a1e9261d19.js","931","static/chunks/app/page-65c85f70be3fb098.js"],"default",1]
+4:I[1732,["840","static/chunks/840-b7c1a13d8149b4c9.js","185","static/chunks/app/layout-a5d8775fbcbb6b0a.js"],"ClientLayout"]
+5:I[4707,[],""]
+6:I[6423,[],""]
+7:I[5292,["840","static/chunks/840-b7c1a13d8149b4c9.js","648","static/chunks/648-2a52a5a1e9261d19.js","160","static/chunks/app/not-found-8df0ec6275696a38.js"],"default"]
+0:["IuIKENijM_QMPtloUmY3o",[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],["",{"children":["__PAGE__",{},[["$L1",["$","$L2",null,{"props":{"params":{},"searchParams":{}},"Component":"$3"}],[["$","link","0",{"rel":"stylesheet","href":"/lab9-my-styled-app/_next/static/css/c5111c3fa732c47d.css","precedence":"next","crossOrigin":"$undefined"}]]],null],null]},[[[["$","link","0",{"rel":"stylesheet","href":"/lab9-my-styled-app/_next/static/css/ee7b536b3f0e6def.css","precedence":"next","crossOrigin":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"className":"__variable_0143e8 __variable_09bb24 antialiased","children":["$","$L4",null,{"children":["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$L7",null,{}],"notFoundStyles":[]}]}]}]}]],null],null],["$L8",null]]]]
+8:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"My Styled App"}],["$","meta","3",{"name":"description","content":"A showcase of different styling methods in Next.js"}]]
+1:null
