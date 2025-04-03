@@ -32,24 +32,34 @@
       to { transform: rotate(360deg); }
     }
   </style>
-  <!-- Fix for GitHub Pages - direct redirect to index.html -->
+  
+  <!-- Direct loader for GitHub Pages -->
   <script>
-    // Much simpler redirect that works better
     (function() {
-      window.onload = function() {
-        // Give it a small timeout before redirecting
+      // Direct path to the next.js static files on GitHub Pages
+      var repo = 'lab9-my-styled-app';
+      var origin = window.location.origin;
+      var isGitHubPages = origin.includes('github.io');
+      
+      if (isGitHubPages) {
+        // Add the main Next.js script directly
+        var nextMainScript = document.createElement('script');
+        nextMainScript.src = '/' + repo + '/_next/static/chunks/main-app.js';
+        nextMainScript.async = true;
+        document.head.appendChild(nextMainScript);
+        
+        // Add React
+        var reactScript = document.createElement('script');
+        reactScript.src = '/' + repo + '/_next/static/chunks/react-dom.js';
+        reactScript.async = true;
+        document.head.appendChild(reactScript);
+        
+        // Force navigation to the actual root
         setTimeout(function() {
-          var repo = 'lab9-my-styled-app';
-          var pathName = window.location.pathname;
-          
-          // If we're at the root of the repo, try to load the app
-          if (pathName.endsWith(repo + '/') || pathName.endsWith(repo)) {
-            console.log('Redirecting to app index...');
-            // Force refresh to the index.html
-            window.location.href = window.location.origin + '/' + repo + '/index.html?forceRefresh=' + Date.now();
-          }
-        }, 100);
-      };
+          // Try to directly access the root page after scripts load
+          window.location.href = origin + '/' + repo + '/index';
+        }, 1000);
+      }
     })();
   </script>
 </head>
@@ -57,17 +67,18 @@
   <div class="loading">
     <h2>Loading My Styled App...</h2>
     <div class="spinner"></div>
-    <p>If this message doesn't disappear after a few seconds, please try:</p>
+    <p>If this message still appears, please try one of these options:</p>
     <ul style="text-align: left; display: inline-block;">
-      <li>Refreshing the page (press F5 or Ctrl+R)</li>
-      <li>Clearing your browser cache</li>
-      <li>Using Chrome or Firefox browser</li>
-      <li>Directly access: <a id="app-link" href="#">My Styled App</a></li>
+      <li><a href="#" onclick="window.location.reload(true); return false;">Hard refresh the page</a> (bypass cache)</li>
+      <li><a id="direct-home" href="#">Go to home page directly</a></li>
+      <li><a id="direct-styled" href="#">Go to styled page directly</a></li>
+      <li>Try <a href="https://hjoseph777.github.io/lab9-my-styled-app/?nocache=true">this direct link</a> instead</li>
     </ul>
     
     <script>
       var repo = 'lab9-my-styled-app';
-      document.getElementById('app-link').href = window.location.origin + '/' + repo;
+      document.getElementById('direct-home').href = window.location.origin + '/' + repo;
+      document.getElementById('direct-styled').href = window.location.origin + '/' + repo + '/styled';
     </script>
   </div>
 </body>
