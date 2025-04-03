@@ -9,15 +9,20 @@ const fadeIn = keyframes`
   to { opacity: 1; transform: translateY(0); }
 `;
 
+const pulse = keyframes`
+  0% { box-shadow: 0 0 0 0 rgba(74, 107, 223, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(74, 107, 223, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(74, 107, 223, 0); }
+`;
+
 // Styled button using styled-components with improved design
-// Changed props to transient props (with $ prefix) to prevent DOM warnings
 const Button = styled.button`
   padding: ${props => props.$primary ? '12px 28px' : '10px 24px'};
   background: ${props => props.$primary 
-    ? 'linear-gradient(135deg, #4a6bdf, #3a56b8)'
+    ? 'linear-gradient(135deg, var(--primary), var(--primary-dark))'
     : 'transparent'};
-  color: ${props => props.$primary ? '#fff' : '#4a6bdf'};
-  border: ${props => props.$primary ? 'none' : '2px solid #4a6bdf'};
+  color: ${props => props.$primary ? '#fff' : 'var(--primary)'};
+  border: ${props => props.$primary ? 'none' : '2px solid var(--primary)'};
   border-radius: 8px;
   font-size: ${props => props.$primary ? '1rem' : '0.9rem'};
   font-weight: ${props => props.$primary ? '600' : '500'};
@@ -52,7 +57,7 @@ const Button = styled.button`
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    background-color: ${props => props.$primary ? '#3a56b8' : '#f0f7ff'};
+    background-color: ${props => props.$primary ? 'var(--primary-dark)' : 'var(--gray-light)'};
     
     &::before {
       left: 100%;
@@ -62,6 +67,11 @@ const Button = styled.button`
   &:active {
     transform: translateY(0);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Pulse animation when mounted */
+  &.mounted:not(:hover) {
+    animation: ${pulse} 2s infinite;
   }
   
   /* Responsive adjustments */
@@ -75,7 +85,11 @@ export default function StyledButton({ primary = false, label = "Click Me", onCl
   const [mounted, setMounted] = useState(false);
   
   useEffect(() => {
-    setMounted(true);
+    const timer = setTimeout(() => {
+      setMounted(true);
+    }, 500);
+    
+    return () => clearTimeout(timer);
   }, []);
 
   return (

@@ -94,3 +94,18 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## GitHub Pages Deployment
+
+This project is specifically configured to work with GitHub Pages:
+
+### Deployment Process
+
+1. The project uses a special setup to handle GitHub Pages' limitations:
+   - Client-side routing with custom 404.html redirect
+   - Asset prefixing for proper path resolution
+   - Base path configuration for repository subpath
+
+2. To deploy the project:
+   ```bash
+   npm run deploy
+
