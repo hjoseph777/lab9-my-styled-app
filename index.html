@@ -19,7 +19,6 @@
     .loading {
       padding: 20px;
     }
-    /* Add an animation to make it clear something is happening */
     .spinner {
       border: 4px solid rgba(0, 0, 0, 0.1);
       border-left-color: #4a6bdf;
@@ -33,21 +32,24 @@
       to { transform: rotate(360deg); }
     }
   </style>
-  <!-- Add a script to redirect to the correct path -->
+  <!-- Fix for GitHub Pages - direct redirect to index.html -->
   <script>
-    // Force redirect to the root path with the repo name
+    // Much simpler redirect that works better
     (function() {
-      var repo = 'lab9-my-styled-app';
-      var l = window.location;
-      
-      if (l.hostname.includes('github.io')) {
-        // If we're on the main page but not seeing the app, try to force a redirect
-        if (l.pathname.endsWith(repo + '/') || l.pathname.endsWith(repo)) {
-          console.log('Attempting to load app from GitHub Pages...');
-          // Try loading the index directly
-          window.location.replace(l.protocol + '//' + l.hostname + '/' + repo + '/_next/static/chunks/main-app.js');
-        }
-      }
+      window.onload = function() {
+        // Give it a small timeout before redirecting
+        setTimeout(function() {
+          var repo = 'lab9-my-styled-app';
+          var pathName = window.location.pathname;
+          
+          // If we're at the root of the repo, try to load the app
+          if (pathName.endsWith(repo + '/') || pathName.endsWith(repo)) {
+            console.log('Redirecting to app index...');
+            // Force refresh to the index.html
+            window.location.href = window.location.origin + '/' + repo + '/index.html?forceRefresh=' + Date.now();
+          }
+        }, 100);
+      };
     })();
   </script>
 </head>
@@ -55,16 +57,17 @@
   <div class="loading">
     <h2>Loading My Styled App...</h2>
     <div class="spinner"></div>
-    <p>If this message doesn't disappear, please try:</p>
+    <p>If this message doesn't disappear after a few seconds, please try:</p>
     <ul style="text-align: left; display: inline-block;">
-      <li>Refreshing the page</li>
+      <li>Refreshing the page (press F5 or Ctrl+R)</li>
       <li>Clearing your browser cache</li>
-      <li>Trying a different browser</li>
-      <li>Directly accessing <a id="direct-link" href="#">the app</a></li>
+      <li>Using Chrome or Firefox browser</li>
+      <li>Directly access: <a id="app-link" href="#">My Styled App</a></li>
     </ul>
     
     <script>
-      document.getElementById('direct-link').href = window.location.origin + '/lab9-my-styled-app/index';
+      var repo = 'lab9-my-styled-app';
+      document.getElementById('app-link').href = window.location.origin + '/' + repo;
     </script>
   </div>
 </body>
