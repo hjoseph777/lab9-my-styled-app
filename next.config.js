@@ -6,10 +6,7 @@ const isProd = process.env.NODE_ENV === 'production'
 const nextConfig = {
   reactStrictMode: true,
   compiler: {
-    styledComponents: {
-      ssr: true,
-      displayName: true,
-    },
+    styledComponents: true
   },
   images: {
     unoptimized: true,
@@ -18,6 +15,16 @@ const nextConfig = {
   basePath: isProd ? `/${repo}` : '',
   output: 'export',
   trailingSlash: true,
+  webpack: (config) => {
+    if (isProd) {
+      config.output.publicPath = `/${repo}/`;
+      config.module.rules.push({
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+        type: 'asset/resource',
+      });
+    }
+    return config;
+  }
 }
 
 module.exports = nextConfig

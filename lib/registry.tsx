@@ -1,42 +1,31 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { useServerInsertedHTML } from 'next/navigation'
-import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
+import { StyleSheetManager } from 'styled-components'
 
+// Simplified registry for client-side only rendering on GitHub Pages
 export function StyledComponentsRegistry({
   children,
 }: {
   children: React.ReactNode
 }) {
-  // Create stylesheet instance
-  const [styledComponentsStyleSheet] = useState(() => new ServerStyleSheet())
-  const [isClient, setIsClient] = useState(false)
+  const [mounted, setMounted] = useState(false)
   
-  // Handle client-side detection
+  // Only show content after mounting (client-side)
   useEffect(() => {
-    setIsClient(true)
+    setMounted(true)
   }, [])
   
-  // Handle server-side styles
-  useServerInsertedHTML(() => {
-    const styles = styledComponentsStyleSheet.getStyleElement()
-    styledComponentsStyleSheet.instance.clearTag()
-    return <>{styles}</>
-  })
-  
-  // Fix for GitHub Pages - ensure registry works on both client and server
-  if (isClient) {
-    return (
-      <StyleSheetManager enableVendorPrefixes>
-        {children}
-      </StyleSheetManager>
-    )
-  }
-  
+  // For GitHub Pages, we only need client-side styled-components
   return (
-    <StyleSheetManager sheet={styledComponentsStyleSheet.instance} enableVendorPrefixes>
-      {children}
-    </StyleSheetManager>
+    <>
+      {mounted ? (
+        <StyleSheetManager enableVendorPrefixes>
+          {children}
+        </StyleSheetManager>
+      ) : (
+        <div style={{ visibility: 'hidden' }}>{children}</div>
+      )}
+    </>
   )
 }
